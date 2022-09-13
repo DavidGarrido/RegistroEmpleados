@@ -9,10 +9,10 @@ namespace RegistroEmpleados.Modelos
         public string Nombre2 { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
-        [ForeignKey("CargoId")]
-        public int CargoId { get; set; }
-        [ForeignKey("SalarioId")]
-        public int SalarioId { get; set; }
+        public int IdCargo { get; set; }
+        public int IdSalario { get; set; }
         public DateTime FechaCreacion { get; set; }
+        public virtual Cargo Cargo { get; set; }
+        public virtual Salario Salario { get; set; }
     }
 }

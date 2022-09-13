@@ -3,6 +3,9 @@ using RegistroEmpleados.Modelos;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options => options.AddPolicy("AlloWebApp",
+    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -22,6 +25,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AlloWebApp");
 
 app.UseHttpsRedirection();
 

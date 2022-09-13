@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RegistroEmpleados.Modelos;
 
@@ -11,9 +12,10 @@ using RegistroEmpleados.Modelos;
 namespace RegistroEmpleados.Migrations
 {
     [DbContext(typeof(aplicationDbContext))]
-    partial class aplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220909112447_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace RegistroEmpleados.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cargo", (string)null);
+                    b.ToTable("Cargo");
                 });
 
             modelBuilder.Entity("RegistroEmpleados.Modelos.Empleado", b =>
@@ -84,7 +86,7 @@ namespace RegistroEmpleados.Migrations
 
                     b.HasIndex("SalarioId");
 
-                    b.ToTable("Empleado", (string)null);
+                    b.ToTable("Empleado");
                 });
 
             modelBuilder.Entity("RegistroEmpleados.Modelos.Salario", b =>
@@ -100,7 +102,7 @@ namespace RegistroEmpleados.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Salario", (string)null);
+                    b.ToTable("Salario");
                 });
 
             modelBuilder.Entity("RegistroEmpleados.Modelos.Empleado", b =>
